@@ -1,19 +1,30 @@
-public class Enemy extends Ball{
-    private int speed;
-    
-    //CONSTRUCTOR
-    public Enemy (double x, double y, double diameter, String col, int layer, int speed){
-        super(x,  y,  diameter, col);
-        this.speed=speed;
-    }
+public class Main 
+{
+    public static void main(String[] args)
+    {
+        GameArena arena = new GameArena(600,600);
+        Enemy one = new Enemy(250,150,20,"RED",1,5);
+        Enemy two = new Enemy(200,150,20,"RED",1,5);
+        Enemy three = new Enemy(0,0,20,"RED",1,5);
 
+        arena.addBall(one);
+        arena.addBall(two);
+        arena.addBall(three);
 
-    //ACCESSORS AND MUTATORS
-    public void setSpeed(int newspeed){
-        this.speed=newspeed;
-    }
-
-    public int getSpeed(){
-        return this.speed;
+        while(true)
+        {
+            int run = 1;
+            while(run==1){
+                one.move(one.randomX(), one.randomY());
+                arena.pause();
+                two.move(two.randomX(), two.randomY());
+                arena.pause();
+                three.move(three.randomX(), three.randomY());
+                arena.pause();
+            }
+            
+            
+        }
     }
 }
+
