@@ -9,14 +9,7 @@ public class Main
 
         while(true)
         {
-            boolean run = true;
-            while(run){
-                one.moveEnemy("x");
-                one.moveEnemy("y");
-
-            }
-            
-            
+            one.moveEnemy();
         }
     }
 }

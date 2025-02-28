@@ -14,36 +14,16 @@ public class Enemy extends Ball{
         this.yDirection = 0;
     }
 
-    //MOVE RANDOMLY
-    public double directionRandom(){
-        double rand = (Math.random() * 1);
-        return rand;
-    }
-
-    public void moveEnemy(String axis){
-        if (this.stepCounter<10){
-            double direction = directionRandom();
-            if (axis=="x"){
-                // Moving in X axis
-                if (direction==0){
-                    this.move(-5,0);
-                }
-                else if(direction==1){
-                    this.move(5,0);
-                }
-            }
-            else{
-                // Moving in the Y axis yara
-                if (direction==0){
-                    this.move(0,-5);
-                }
-                else if(direction==1){
-                    this.move(0,5);
-                }
-            }
+    public void moveEnemy() {
+        if (this.stepCounter==10) {
+            this.xDirection = ((Math.random() * 2) - 1);
+            this.yDirection = ((Math.random() * 2) - 1);
+            this.stepCounter = 0;
         }
-
+        
+        this.move(this.xDirection*this.speed, this.yDirection*this.speed);
         this.stepCounter += 1;
+        System.out.println("DEBUG: Moved ball");
     }
 
 
