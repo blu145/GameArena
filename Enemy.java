@@ -16,38 +16,33 @@ public class Enemy extends Ball{
 
     //MOVE RANDOMLY
     public double directionRandom(){
-        // Generates 0 or 1 or 2, used to decide negative or positive in move
-        // or no move in case of 2
-        if (this.stepCounter < 5){
-            return 2;
-        }
-        else{
-            double rand = (Math.random() * 1);
-            this.stepCounter = 0;
-            return rand;
-        }
+        double rand = (Math.random() * 1);
+        return rand;
     }
 
-    public void moveEnemy(double direction, String axis){
-        if (axis=="x"){
-            // Moving in X axis
-            if (direction==0){
-                this.move(-5,0);
+    public void moveEnemy(String axis){
+        if (this.stepCounter<10){
+            double direction = directionRandom();
+            if (axis=="x"){
+                // Moving in X axis
+                if (direction==0){
+                    this.move(-5,0);
+                }
+                else if(direction==1){
+                    this.move(5,0);
+                }
             }
-            else if(direction==1){
-                this.move(5,0);
+            else{
+                // Moving in the Y axis yara
+                if (direction==0){
+                    this.move(0,-5);
+                }
+                else if(direction==1){
+                    this.move(0,5);
+                }
             }
         }
-        else{
-            // Moving in the Y axis yara
-            if (direction==0){
-                this.move(0,-5);
-            }
-            else if(direction==1){
-                this.move(0,5);
-            }
 
-        }
         this.stepCounter += 1;
     }
 
