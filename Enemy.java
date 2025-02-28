@@ -10,6 +10,8 @@ public class Enemy extends Ball{
         super(x,  y,  diameter, col);
         this.speed=speed;
         this.stepCounter = 0;
+        this.xDirection = 0;
+        this.yDirection = 0;
     }
 
     //MOVE RANDOMLY
