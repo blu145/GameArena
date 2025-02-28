@@ -11,10 +11,8 @@ public class Main
         {
             boolean run = true;
             while(run){
-                one.xDirection = one.directionRandom();
-                one.yDirection = one.directionRandom();
-                one.moveEnemy(one.xDirection,"x");
-                one.moveEnemy(one.yDirection,"y");
+                one.moveEnemy("x");
+                one.moveEnemy("y");
 
             }
             
