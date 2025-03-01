@@ -8,6 +8,23 @@ public class Player extends Ball {
         this.speed = speed;
     }
 
+    //movement
+    public void moveDown(){
+        this.move(0,10);
+    }
+
+    public void moveUp(){
+        this.move(0,-10);
+    }
+
+    public void moveLeft(){
+        this.move(-10,0);
+    }
+
+    public void moveRight(){
+        this.move(10,0);
+    }
+
     // Setters
     public void setHealth(int health){
         this.health += health;
