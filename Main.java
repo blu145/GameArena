@@ -3,7 +3,7 @@ public class Main
     public static void main(String[] args)
     {
         GameArena arena = new GameArena(600,600);
-        Enemy one = new Enemy(250,150,20,"RED",1,1000);
+        Enemy one = new Enemy(300,300,20,"RED",1,50);
 
         arena.addBall(one);
 
