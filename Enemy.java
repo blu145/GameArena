@@ -1,13 +1,16 @@
 public class Enemy extends Ball{
+    public int steps;
     public int speed;
     public int stepCounter;
     public int xDir;
     public int yDir;
+    private final movementMechanics moveMech = new movementMechanics();
 
     
     //CONSTRUCTOR
-    public Enemy (double x, double y, double diameter, String col, int layer, int speed){
+    public Enemy (double x, double y, double diameter, String col, int layer, int steps, int speed){
         super(x,  y,  diameter, col);
+        this.steps=steps;
         this.speed=speed;
         this.stepCounter = 0;
         this.xDir = 0;
@@ -21,9 +24,15 @@ public class Enemy extends Ball{
     }
 
     public void moveEnemy(){
-        if (this.stepCounter<this.speed){
+        if (this.stepCounter<this.steps){
             // Enemy hasn't moved [speed] steps yet
-            this.move(this.xDir*5,this.yDir*5);
+            if (moveMech.offScreen((int)this.getXPosition() + this.xDir*this.speed, (int)this.getYPosition() + this.yDir*this.speed)) {
+                moveMech.transitionMovement(this, (int)this.getXPosition(), (int)this.getYPosition(), this.xDir*this.speed, this.yDir*this.speed);
+            } else {
+                this.move(this.xDir*this.speed,this.yDir*this.speed);
+                System.out.println("\nDEBUG: regular movement");
+            }
+            
             this.stepCounter += 1;
         }
         this.xDir = directionRandom();

@@ -3,10 +3,10 @@ public class Main
     public static void main(String[] args)
     {
         GameArena arena = new GameArena(600,600);
-        Enemy one = new Enemy(250,150,20,"RED",1,1000);
-        Player player = new Player(10,10,25,"GREEN",100,100);
+        //Enemy one = new Enemy(250,150,20,"RED",1,1000,20);
+        Player player = new Player(10,10,25,"GREEN",100,50);
 
-        arena.addBall(one);
+        //arena.addBall(one);
         arena.addBall(player);
 
         arena.addKeyListener(arena);
@@ -17,7 +17,7 @@ public class Main
         while(true)
         {
             arena.pause();
-            one.moveEnemy();
+            //one.moveEnemy();
 
             if (arena.letterPressed('a')){
                 player.moveLeft();
