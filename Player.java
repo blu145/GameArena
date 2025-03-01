@@ -10,19 +10,19 @@ public class Player extends Ball {
 
     //movement
     public void moveDown(){
-        this.move(0,10);
+        this.move(0,speed);
     }
 
     public void moveUp(){
-        this.move(0,-10);
+        this.move(0,-speed);
     }
 
     public void moveLeft(){
-        this.move(-10,0);
+        this.move(-speed,0);
     }
 
     public void moveRight(){
-        this.move(10,0);
+        this.move(speed,0);
     }
 
     // Setters
