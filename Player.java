@@ -12,41 +12,37 @@ public class Player extends Ball {
 
     //movement
     public void moveDown(){
-        int currX = (int)this.getXPosition();
-        int currY = (int)this.getYPosition();
-        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
-            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
-        } else {
+        if (moveMech.checkPlayer(this,0,1)){
+            moveMech.teleportPlayer(this,1);
+        }
+        else{
             this.move(0,this.speed);
         }
     }
 
     public void moveUp(){
-        int currX = (int)this.getXPosition();
-        int currY = (int)this.getYPosition();
-        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
-            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
-        } else {
+        if (moveMech.checkPlayer(this,0,-1)){
+            moveMech.teleportPlayer(this,-1);
+        }
+        else{
             this.move(0,-this.speed);
         }
     }
 
     public void moveLeft(){
-        int currX = (int)this.getXPosition();
-        int currY = (int)this.getYPosition();
-        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
-            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
-        } else {
+        if (moveMech.checkPlayer(this,-1,0)){
+            moveMech.teleportPlayer(this,-1);
+        }
+        else{
             this.move(-this.speed,0);
         }
     }
 
     public void moveRight(){
-        int currX = (int)this.getXPosition();
-        int currY = (int)this.getYPosition();
-        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
-            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
-        } else {
+        if (moveMech.checkPlayer(this,1,0)){
+            moveMech.teleportPlayer(this,1);
+        }
+        else{
             this.move(this.speed,0);
         }
     }

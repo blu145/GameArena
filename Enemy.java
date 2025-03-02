@@ -26,11 +26,9 @@ public class Enemy extends Ball{
     public void moveEnemy(){
         if (this.stepCounter<this.steps){
             // Enemy hasn't moved [speed] steps yet
-            if (moveMech.offScreen((int)this.getXPosition() + this.xDir*this.speed, (int)this.getYPosition() + this.yDir*this.speed)) {
-                moveMech.transitionMovement(this, (int)this.getXPosition(), (int)this.getYPosition(), this.xDir*this.speed, this.yDir*this.speed);
-            } else {
+            if (moveMech.checkEnemy(this)) {} 
+            else {
                 this.move(this.xDir*this.speed,this.yDir*this.speed);
-                System.out.println("\nDEBUG: regular movement");
             }
             
             this.stepCounter += 1;
