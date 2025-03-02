@@ -31,7 +31,7 @@ public class Enemy extends Ball{
     public void moveEnemy(){
         if (this.stepCounter<this.steps){
             // Enemy hasn't moved [speed] steps yet
-            if (moveMech.checkEnemy(this)) {} 
+            if (moveMech.checkEnemy(this)) {// HERE WE NEED TO ADD A WAY FOR THE ENEMY TO "TURN AROUND"} 
             else {
                 this.move(this.xDir*this.speed,this.yDir*this.speed);
             }
