@@ -42,13 +42,15 @@ public class Enemy extends Ball{
         this.stepCounter = 0;
     }
 
-    public void enemyDeath(Player player, GameArena arena){
+    public void enemyDeath(Player player, GameArena arena, Text score){
         if (this.collides(player)){
             this.health-=10;
             if (this.health<=0){
                 arena.removeBall(this);
+                player.setScore(player.getScore()+1);
+                score.setText("Score: "+player.getScore());
             }
-            
+
         }
     }
 
