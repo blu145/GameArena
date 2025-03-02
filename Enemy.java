@@ -4,6 +4,7 @@ public class Enemy extends Ball{
     public int stepCounter;
     public int xDir;
     public int yDir;
+    public int health;
     private final movementMechanics moveMech = new movementMechanics();
 
     
@@ -15,6 +16,7 @@ public class Enemy extends Ball{
         this.stepCounter = 0;
         this.xDir = 0;
         this.yDir = 0;
+        this.health = 100;
     }
 
     //MOVE RANDOMLY
@@ -38,6 +40,16 @@ public class Enemy extends Ball{
         this.xDir = directionRandom();
         this.yDir = directionRandom();
         this.stepCounter = 0;
+    }
+
+    public void enemyDeath(Player player, GameArena arena){
+        if (this.collides(player)){
+            this.health-=10;
+            if (this.health<=0){
+                arena.removeBall(this);
+            }
+            
+        }
     }
 
 

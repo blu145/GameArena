@@ -3,8 +3,8 @@ public class Player extends Ball {
     public int speed;
     private final movementMechanics moveMech = new movementMechanics();
 
-    public Player(double x, double y, double diameter, String col, int health, int speed){
-        super(x, y, diameter, col);
+    public Player(double x, double y, double diameter, String col, int layer, int health, int speed){
+        super(x, y, diameter, col, layer);
         this.health = 100;
         this.speed = speed;
         
