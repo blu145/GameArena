@@ -18,11 +18,11 @@ public class Player extends Ball {
     }
 
     public void moveLeft(){
-        this.move(-10,speed);
+        this.move(-speed,0);
     }
 
     public void moveRight(){
-        this.move(10,speed);
+        this.move(speed,0);
     }
 
     // Setters
