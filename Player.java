@@ -1,28 +1,54 @@
 public class Player extends Ball {
     public int health;
     public int speed;
+    private final movementMechanics moveMech = new movementMechanics();
 
     public Player(double x, double y, double diameter, String col, int health, int speed){
         super(x, y, diameter, col);
         this.health = 100;
         this.speed = speed;
+        
     }
 
     //movement
     public void moveDown(){
-        this.move(0,speed);
+        int currX = (int)this.getXPosition();
+        int currY = (int)this.getYPosition();
+        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
+            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
+        } else {
+            this.move(0,this.speed);
+        }
     }
 
     public void moveUp(){
-        this.move(0,-speed);
+        int currX = (int)this.getXPosition();
+        int currY = (int)this.getYPosition();
+        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
+            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
+        } else {
+            this.move(0,-this.speed);
+        }
     }
 
     public void moveLeft(){
-        this.move(-speed,0);
+        int currX = (int)this.getXPosition();
+        int currY = (int)this.getYPosition();
+        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
+            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
+        } else {
+            this.move(-this.speed,0);
+        }
     }
 
     public void moveRight(){
-        this.move(speed,0);
+        int currX = (int)this.getXPosition();
+        int currY = (int)this.getYPosition();
+        if (moveMech.offScreen(currX + this.speed, currY + this.speed)) {
+            moveMech.transitionMovement(this, currX, currY, currX + this.speed, currY + this.speed);
+        } else {
+            this.move(this.speed,0);
+        }
     }
 
     // Setters
