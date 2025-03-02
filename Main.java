@@ -37,7 +37,7 @@ public class Main
                 player.moveDown();
             }
             if(arena.letterPressed('v')){
-                one.enemyDeath(player, arena, score);
+                enemy.enemyDeath(player, arena, score);
             }
         }
     }
