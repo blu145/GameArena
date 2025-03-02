@@ -4,8 +4,8 @@ public class Main
     {
         GameArena arena = new GameArena(600,600);
         //Enemy one = new Enemy(250,150,20,"RED",1,1000,20);
-        Player player = new Player(10,10,25,"GREEN",2,100,50);
-        Enemy one = new Enemy(100,100,25,"RED",1,50,15);
+        Player player = new Player(10,10,25,"GREEN",2,100,30);
+        Enemy one = new Enemy(100,100,50,"RED",1,50,15);
         Text score = new Text("Score: "+player.getScore(),50,15,550,"WHITE");
 
         //arena.addBall(one);
@@ -22,7 +22,7 @@ public class Main
         while(true)
         {
             arena.pause();
-            one.moveEnemy();
+            //one.moveEnemy();
 
             if (arena.letterPressed('a')){
                 player.moveLeft();

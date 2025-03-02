@@ -1,3 +1,6 @@
+
+import java.lang.Thread;
+
 public class Enemy extends Ball{
     public int steps;
     public int speed;
@@ -16,7 +19,7 @@ public class Enemy extends Ball{
         this.stepCounter = 0;
         this.xDir = 0;
         this.yDir = 0;
-        this.health = 100;
+        this.health = 10;
     }
 
     //MOVE RANDOMLY
@@ -47,6 +50,11 @@ public class Enemy extends Ball{
             this.health-=10;
             if (this.health<=0){
                 arena.removeBall(this);
+                Text death = new Text("X",50,this.getXPosition(),this.getYPosition(),"RED");
+                arena.addText(death);
+                try { Thread.sleep(1000); }
+		        catch (Exception e) {};
+                arena.removeText(death);
                 player.setScore(player.getScore()+1);
                 score.setText("Score: "+player.getScore());
             }
