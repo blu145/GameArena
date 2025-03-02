@@ -491,7 +491,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	 */
 	public void pause()
 	{
-		try { Thread.sleep(200); }
+		try { Thread.sleep(100); }
 		catch (Exception e) {};
 	}
 

@@ -1,11 +1,11 @@
 public class Player extends Ball {
-    public int health;
+    public int score;
     public int speed;
     private final movementMechanics moveMech = new movementMechanics();
 
-    public Player(double x, double y, double diameter, String col, int health, int speed){
-        super(x, y, diameter, col);
-        this.health = 100;
+    public Player(double x, double y, double diameter, String col, int layer, int score, int speed){
+        super(x, y, diameter, col, layer);
+        this.score = 0;
         this.speed = speed;
         
     }
@@ -48,8 +48,8 @@ public class Player extends Ball {
     }
 
     // Setters
-    public void setHealth(int health){
-        this.health += health;
+    public void setScore(int score){
+        this.score += score;
     }
 
     public void setSpeed(int speed){
@@ -57,8 +57,8 @@ public class Player extends Ball {
     }
 
     // Getters
-    public int gethealth(){
-        return this.health;
+    public int getScore(){
+        return this.score;
     }
 
     public int getSpeed(){
