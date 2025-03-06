@@ -44,10 +44,11 @@ public class Main
             }
             if(arena.letterPressed('v')){
                 for (int i = 0; i < 10; i++) {
-                    if (enemys[i].collides(player)) {
+                    if ((enemys[i].collides(player)) && (enemys[i].getVis())) {
                         enemys[i].enemyDeath(player, arena, score);
                         arena.removeBall(enemys[i]);
                         enemys[i].setVis(false);
+                        break;
                     }
                 }
             }
