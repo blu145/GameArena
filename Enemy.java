@@ -7,6 +7,7 @@ public class Enemy extends Ball{
     public int xDir;
     public int yDir;
     public int health;
+    public boolean visible;
     private final movementMechanics moveMech = new movementMechanics();
 
     
@@ -19,6 +20,7 @@ public class Enemy extends Ball{
         this.xDir = 0;
         this.yDir = 0;
         this.health = 10;
+        this.visible = false;
     }
 
     //MOVE RANDOMLY
@@ -45,7 +47,7 @@ public class Enemy extends Ball{
     }
 
     public void enemyDeath(Player player, GameArena arena, Text score){
-        if (this.collides(player)){
+        //if (this.collides(player)){
             this.health-=10;
             if (this.health<=0){
                 arena.removeBall(this);
@@ -58,7 +60,7 @@ public class Enemy extends Ball{
                 score.setText("Score: "+player.getScore());
             }
 
-        }
+        //}
     }
 
 
@@ -66,7 +68,6 @@ public class Enemy extends Ball{
     public void setSpeed(int newspeed){
         this.speed=newspeed;
     }
-
     public int getSpeed(){
         return this.speed;
     }
@@ -78,8 +79,14 @@ public class Enemy extends Ball{
     public void setXDir(int newXDir) {
         this.xDir = newXDir;
     }
-
     public void setYDir(int newYDir) {
         this.yDir = newYDir;
+    }
+
+    public void setVis(boolean newVis) {
+        this.visible = newVis;
+    }
+    public boolean getVis() {
+        return this.visible;
     }
 }

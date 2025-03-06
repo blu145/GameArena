@@ -3,16 +3,16 @@ public class Main
     public static void main(String[] args)
     {
         GameArena arena = new GameArena(600,600);
-        //Enemy one = new Enemy(250,150,20,"RED",1,1000,20);
         Player player = new Player(10,10,25,"GREEN",2,100,30);
-        Enemy enemy = new Enemy(100,100,50,"RED",1,50,15);
+        Enemy enemys[] = new Enemy[10];
+        for (int i = 0; i < 10; i++) {
+            enemys[i] = new Enemy(100,100,50,"RED",1,50,15);
+        }
+        enemys[0].setVis(true);
         Text score = new Text("Score: "+player.getScore(),50,15,550,"WHITE");
-
         
-
-        //arena.addBall(one);
         arena.addBall(player);
-        arena.addBall(enemy);
+        arena.addBall(enemys[0]);
         arena.addText(score);
 
 
@@ -20,11 +20,15 @@ public class Main
 
 
         
-
+        int timer = 0;
         while(true)
         {
             arena.pause();
-            enemy.moveEnemy();
+            for (int i = 0; i < 10; i++) {
+                if (enemys[i].getVis()) {
+                    enemys[i].moveEnemy();
+                }
+            }
 
             if (arena.letterPressed('a')){
                 player.moveLeft();
@@ -39,8 +43,26 @@ public class Main
                 player.moveDown();
             }
             if(arena.letterPressed('v')){
-                enemy.enemyDeath(player, arena, score);
+                for (int i = 0; i < 10; i++) {
+                    if (enemys[i].collides(player)) {
+                        enemys[i].enemyDeath(player, arena, score);
+                        arena.removeBall(enemys[i]);
+                        enemys[i].setVis(false);
+                    }
+                }
             }
+
+            if (timer == 50) {
+                for (int i = 0; i < 10; i++) {
+                    if (!(enemys[i].getVis())) {
+                        arena.addBall(enemys[i]);
+                        enemys[i].setVis(true);
+                        break;
+                    }
+                }
+                timer = 0;
+            }
+            timer++;
         }
     }
 }
