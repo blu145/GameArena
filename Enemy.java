@@ -74,4 +74,12 @@ public class Enemy extends Ball{
     public void setSteps(int newSteps) {
         this.steps = newSteps;
     }
+
+    public void setXDir(int newXDir) {
+        this.xDir = newXDir;
+    }
+
+    public void setYDir(int newYDir) {
+        this.yDir = newYDir;
+    }
 }
