@@ -1,2 +1,3 @@
 *.class
 commands.txt
+.cache

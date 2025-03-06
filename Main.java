@@ -8,6 +8,8 @@ public class Main
         Enemy enemy = new Enemy(100,100,50,"RED",1,50,15);
         Text score = new Text("Score: "+player.getScore(),50,15,550,"WHITE");
 
+        
+
         //arena.addBall(one);
         arena.addBall(player);
         arena.addBall(enemy);

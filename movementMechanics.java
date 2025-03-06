@@ -27,4 +27,23 @@ public class movementMechanics {
             a.setYPosition(600);
         }
     }
+
+    public void teleportEnemy(Enemy e, int xDir, int yDir) {
+        if ((e.getXPosition() + (e.speed*xDir)) > 600) {
+            e.setXPosition(30);
+            e.setSteps(1);
+        }
+        if ((e.getXPosition() + (e.speed*xDir)) < 0) {
+            e.setXPosition(570);
+            e.setSteps(1);
+        }
+        if ((e.getYPosition() + (e.speed*yDir)) > 600) {
+            e.setYPosition(30);
+            e.setSteps(1);
+        }
+        if ((e.getYPosition() + (e.speed*yDir)) < 0) {
+            e.setYPosition(570);
+            e.setSteps(1);
+        }
+    }
 }
