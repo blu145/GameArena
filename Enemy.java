@@ -56,7 +56,7 @@ public class Enemy extends Ball{
                 try { Thread.sleep(1000); }
 		        catch (Exception e) {};
                 arena.removeText(death);
-                player.setScore(player.getScore()+1);
+                player.incrementScore();
                 score.setText("Score: "+player.getScore());
             }
 

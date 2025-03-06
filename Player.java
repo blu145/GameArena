@@ -48,8 +48,8 @@ public class Player extends Ball {
     }
 
     // Setters
-    public void setScore(int score){
-        this.score += score;
+    public void incrementScore(){
+        this.score++;
     }
 
     public void setSpeed(int speed){
