@@ -24,7 +24,9 @@ public class Enemy extends Ball{
         this.yDir = 0;
         this.health = 10;
         this.visible = false;
-        this.setRandomSpawn();
+        int spawnSet = (int)Math.floor(Math.random() * this.possibleSpawns.length);
+        this.spawnX = possibleSpawns[spawnSet][0];
+        this.spawnY = possibleSpawns[spawnSet][1];
         this.moveToSpawn();
     }
 
@@ -66,12 +68,6 @@ public class Enemy extends Ball{
             }
 
         //}
-    }
-
-    public void setRandomSpawn() {
-        int spawnSet = (int)Math.floor(Math.random() * this.possibleSpawns.length);
-        this.spawnX = possibleSpawns[spawnSet][0];
-        this.spawnY = possibleSpawns[spawnSet][1];
     }
 
     public void moveToSpawn() {

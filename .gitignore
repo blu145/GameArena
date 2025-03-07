@@ -1,3 +1,4 @@
 *.class
 commands.txt
 .cache
+.vscode
