@@ -3,16 +3,19 @@ public class Main
     public static void main(String[] args)
     {
         GameArena arena = new GameArena(600,600);
+
         Player player = new Player(10,10,25,"GREEN",2,100,30);
         Enemy enemys[] = new Enemy[10];
         for (int i = 0; i < 10; i++) {
             enemys[i] = new Enemy(100,100,50,"RED",1,50,15);
+            if (i < 3) {
+                enemys[i].setVis(true);
+                arena.addBall(enemys[i]);
+            }
         }
-        enemys[0].setVis(true);
         Text score = new Text("Score: "+player.getScore(),50,15,550,"WHITE");
         
         arena.addBall(player);
-        arena.addBall(enemys[0]);
         arena.addText(score);
 
 
