@@ -1,6 +1,8 @@
 
 
 public class Enemy extends Ball{
+    public int spawnX;
+    public int spawnY;
     public int steps;
     public int speed;
     public int stepCounter;
@@ -8,6 +10,7 @@ public class Enemy extends Ball{
     public int yDir;
     public int health;
     public boolean visible;
+    public final int possibleSpawns[][] = {{100, 100}, {100, 500}, {500, 100}, {500, 500}};
     private final movementMechanics moveMech = new movementMechanics();
 
     
@@ -21,6 +24,8 @@ public class Enemy extends Ball{
         this.yDir = 0;
         this.health = 10;
         this.visible = false;
+        this.setRandomSpawn();
+        this.moveToSpawn();
     }
 
     //MOVE RANDOMLY
@@ -63,6 +68,16 @@ public class Enemy extends Ball{
         //}
     }
 
+    public void setRandomSpawn() {
+        int spawnSet = (int)Math.floor(Math.random() * this.possibleSpawns.length);
+        this.spawnX = possibleSpawns[spawnSet][0];
+        this.spawnY = possibleSpawns[spawnSet][1];
+    }
+
+    public void moveToSpawn() {
+        this.setXPosition(this.spawnX);
+        this.setYPosition(this.spawnY);
+    }
 
     //ACCESSORS AND MUTATORS
     public void setSpeed(int newspeed){

@@ -56,6 +56,7 @@ public class Main
             if (timer == 50) {
                 for (int i = 0; i < 10; i++) {
                     if (!(enemys[i].getVis())) {
+                        enemys[i].moveToSpawn();
                         arena.addBall(enemys[i]);
                         enemys[i].setVis(true);
                         break;
